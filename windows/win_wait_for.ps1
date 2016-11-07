@@ -18,7 +18,9 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-#
+# ----------------------------------------------------------------------
+<GPL header>
+
 # WANT_JSON
 # POWERSHELL_COMMON
 
@@ -242,6 +244,10 @@ Try {
         {
             sleep $delay
             Set-Attr $result "slept" $true
+        }
+	Else
+        {
+            Set-Attr $result "slept" $false
         }
 
     If ( !($path) -and !($port) -and ($state -ne "drained") )

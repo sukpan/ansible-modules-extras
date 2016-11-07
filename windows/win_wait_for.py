@@ -19,7 +19,8 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-#
+# ------------------------------------------------------
+<GPL header>
 
 
 
@@ -115,4 +116,52 @@ EXAMPLES = '''
 # wait up to 10 minutes for HTTP port (80) to be free
 - win_wait_for: timeout=600 port=80 host=localhost state=stopped
 
+'''
+
+RETURN = '''
+exclude_hosts:
+    description: The exclude_hosts parameter expressed as a comma separated list
+    returned: when exclude_hosts is defined
+    type: string
+    sample: "hosta, hostb"
+elapsed:
+    description: Time spent in module expressed as number of seconds
+    returned: always
+    type: int
+    sample: 72
+port:
+    description: The port parameter supplied
+    returned: when port is defined
+    type: int
+    sample: 80
+path:
+    description: The path parameter supplied
+    returned: when path is defined
+    type: string
+    sample: "C:/SomePath/file.txt"
+slept:
+    description: The module slept prior to performing any checks
+    returned: always
+    type: boolean
+    sample: True
+msg:
+    description: Output intrepreted into a concise message.
+    returned: when failed
+    type: string
+    sample: timeout exceeded waiting for C:/SomePath/file.txt to be absent
+state:
+    description: The requested state, or default value.
+    returned: always
+    type: string
+    sample: present
+failed:
+    description: Whether or not the operation failed.
+    returned: always
+    type: bool
+    sample: False
+changed:
+    description: Whether or not any changes were made.
+    returned: always
+    type: bool
+    sample: False
 '''
